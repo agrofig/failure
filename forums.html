@@ -63,8 +63,8 @@
   </div>
 
   <script>
-    // Replace with your Ably API key
-    const ably = new Ably.Realtime('YOUR-ABLY-API-KEY');
+    // Ably Realtime setup
+    const ably = new Ably.Realtime('mNBKkg.FfsIfg:-gigDSDwn33vKG7vZHZc8afW6VIxEMWyRIZ-ROs33Rs');
     const channel = ably.channels.get('study-forums');
 
     const messagesDiv = document.getElementById('messages');
@@ -81,11 +81,4 @@
       const text = document.getElementById('message').value.trim();
       if (user && text) {
         const fullMessage = `${user}: ${text}`;
-        channel.publish('message', fullMessage);
-        document.getElementById('message').value = '';
-      }
-    }
-  </script>
-
-</body>
-</html>
+        channel
