@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Tools</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 30px;
+    }
+    input {
+      padding: 10px;
+      width: 300px;
+      font-size: 1em;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      margin-left: 10px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Study Tools</h1>
+  <p>Enter a site to unblock:</p>
+  <input id="url" placeholder="https://example.com" />
+  <button onclick="go()">Go</button>
+
+  <script>
+    function go() {
+      const input = document.getElementById("url").value.trim();
+      if (!input.startsWith("http")) {
+        alert("Please enter a full URL starting with http or https");
+        return;
+      }
+      const encoded = btoa(input);
+      const proxyBase = "https://67885bob.studentvue.my.cdn.cloudflare.net/browsing?cache=3823970973&url=";
+      window.location.href = proxyBase + encoded;
+    }
+  </script>
+
+</body>
+</html>
