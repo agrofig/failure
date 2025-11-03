@@ -3,57 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Study Tools</title>
+  <title>Your Game Title</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      text-align: center;
-      padding: 50px;
+    html, body {
+      margin: 0;
+      height: 100%;
+      background-color: #121212;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
     }
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 30px;
-    }
-    input {
-      padding: 10px;
-      width: 300px;
-      font-size: 1em;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 1em;
-      margin-left: 10px;
-      background-color: #3498db;
-      color: white;
+    #gameFrame {
       border: none;
-      border-radius: 5px;
-      cursor: pointer;
+      width: 100%;
+      height: calc(100% - 50px);
     }
-    button:hover {
-      background-color: #2980b9;
+    #fullscreenBtn {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      padding: 10px 20px;
+      background-color: #1f1f1f;
+      color: #fff;
+      border: 2px solid #333;
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 10;
+    }
+    #fullscreenBtn:hover {
+      background-color: #333;
     }
   </style>
 </head>
 <body>
-
-  <h1>Study Tools</h1>
-  <p>Enter a site to unblock:</p>
-  <input id="url" placeholder="https://example.com" />
-  <button onclick="go()">Go</button>
+  <iframe id="gameFrame" src="https://010203040519.studentvue.my.cdn.cloudflare.net/" allowfullscreen></iframe>
+  <button id="fullscreenBtn" onclick="toggleFullscreen()">Fullscreen</button>
 
   <script>
-    function go() {
-      const input = document.getElementById("url").value.trim();
-      if (!input.startsWith("http")) {
-        alert("Please enter a full URL starting with http or https");
-        return;
+    function toggleFullscreen() {
+      const iframe = document.getElementById('gameFrame');
+      if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+      } else if (iframe.webkitRequestFullscreen) {
+        iframe.webkitRequestFullscreen();
+      } else if (iframe.msRequestFullscreen) {
+        iframe.msRequestFullscreen();
       }
-      const encoded = btoa(input);
-      const proxyBase = "https://67885bob.studentvue.my.cdn.cloudflare.net/browsing?cache=3823970973&url=";
-      window.location.href = proxyBase + encoded;
     }
   </script>
-
 </body>
 </html>
