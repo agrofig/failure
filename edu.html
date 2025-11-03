@@ -50,38 +50,30 @@
   <h1>🎮 Game Library</h1>
   <input type="text" id="searchBar" placeholder="Search games..." oninput="filterGames()" />
 
-  <button class="game-button" onclick="location.href='2048.html'">2048</button>
-  <button class="game-button" onclick="location.href='void.html'">Void Network/roblox</button>
-  <button class="game-button" onclick="location.href='among.html'">Among us</button>
-  <button class="game-button" onclick="location.href='grow.html'">Grow a Garden</button>
-  <button class="game-button" onclick="location.href='rag.html'">Ragdoll Hit</button>
-  <button class="game-button" onclick="location.href='bitlife.html'">Bitlife</button>
-  <button class="game-button" onclick="location.href='crazy.html'">Crazy Cattle</button>
-  <button class="game-button" onclick="location.href='bowmaster.html'">BowMasters</button>
-  <button class="game-button" onclick="location.href='block.html'">Block Blast</button>
-  <button class="game-button" onclick="location.href='burrito.html'">Burrito Bison</button>
-  <button class="game-button" onclick="location.href='10m.html'">10 Minutes Till Dawn</button>
-  <button class="game-button" onclick="location.href='lol.html'">1v1.lol</button>
-  <button class="game-button" onclick="location.href='time.html'">Time Shooter</button>
-  <button class="game-button" onclick="location.href='DM.html'">Drive Mad</button>
-  <button class="game-button" onclick="location.href='brainrot.html'">Steal A BrainRot</button>
-  <button class="game-button" onclick="location.href='fnaf.html'">FNAF 1</button>
-  <button class="game-button" onclick="location.href='fnaf2.html'">FNAF 2</button>
-  <button class="game-button" onclick="location.href='fnaf3.html'">FNAF 3</button>
-  <button class="game-button" onclick="location.href='fnaf4.html'">FNAF 4</button>
-  <button class="game-button" onclick="location.href='glad.html'">GladiHoppers</button>
-  <button class="game-button" onclick="location.href='hole.html'">Hole.io</button>
-  <button class="game-button" onclick="location.href='minecraft.html'">Minecraft</button>
-  <button class="game-button" onclick="location.href='plant.html'">Plant VS Zombies</button>
-  <button class="game-button" onclick="location.href='joyride.html'">Jetpack Joyride</button>
-  
-
-
-
-
-  
-
-  <!-- Add more game buttons here -->
+  <button class="game-button" onclick="launchGame('2048.html')">2048</button>
+  <button class="game-button" onclick="launchGame('void.html')">Void Network/roblox</button>
+  <button class="game-button" onclick="launchGame('among.html')">Among us</button>
+  <button class="game-button" onclick="launchGame('grow.html')">Grow a Garden</button>
+  <button class="game-button" onclick="launchGame('rag.html')">Ragdoll Hit</button>
+  <button class="game-button" onclick="launchGame('bitlife.html')">Bitlife</button>
+  <button class="game-button" onclick="launchGame('crazy.html')">Crazy Cattle</button>
+  <button class="game-button" onclick="launchGame('bowmaster.html')">BowMasters</button>
+  <button class="game-button" onclick="launchGame('block.html')">Block Blast</button>
+  <button class="game-button" onclick="launchGame('burrito.html')">Burrito Bison</button>
+  <button class="game-button" onclick="launchGame('10m.html')">10 Minutes Till Dawn</button>
+  <button class="game-button" onclick="launchGame('lol.html')">1v1.lol</button>
+  <button class="game-button" onclick="launchGame('time.html')">Time Shooter</button>
+  <button class="game-button" onclick="launchGame('DM.html')">Drive Mad</button>
+  <button class="game-button" onclick="launchGame('brainrot.html')">Steal A BrainRot</button>
+  <button class="game-button" onclick="launchGame('fnaf.html')">FNAF 1</button>
+  <button class="game-button" onclick="launchGame('fnaf2.html')">FNAF 2</button>
+  <button class="game-button" onclick="launchGame('fnaf3.html')">FNAF 3</button>
+  <button class="game-button" onclick="launchGame('fnaf4.html')">FNAF 4</button>
+  <button class="game-button" onclick="launchGame('glad.html')">GladiHoppers</button>
+  <button class="game-button" onclick="launchGame('hole.html')">Hole.io</button>
+  <button class="game-button" onclick="launchGame('minecraft.html')">Minecraft</button>
+  <button class="game-button" onclick="launchGame('plant.html')">Plant VS Zombies</button>
+  <button class="game-button" onclick="launchGame('joyride.html')">Jetpack Joyride</button>
 
   <script>
     function filterGames() {
@@ -90,6 +82,17 @@
       buttons.forEach(btn => {
         btn.style.display = btn.textContent.toLowerCase().includes(query) ? 'block' : 'none';
       });
+    }
+
+    function launchGame(path) {
+      const win = window.open("about:blank", "_blank");
+      const iframe = win.document.createElement("iframe");
+      iframe.src = path;
+      iframe.style.border = "none";
+      iframe.style.width = "100%";
+      iframe.style.height = "100%";
+      win.document.body.style.margin = "0";
+      win.document.body.appendChild(iframe);
     }
   </script>
 </body>
