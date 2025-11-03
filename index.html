@@ -38,8 +38,21 @@
 </head>
 <body>
   <h1>🎮 Adam's Educational Games</h1>
-  <button class="button" onclick="location.href='forums.html'">Forums</button>
-  <button class="button" onclick="location.href='study-tools.html'">Study Tools</button>
-  <button class="button" onclick="location.href='edu.html'">Games</button>
+  <button class="button" onclick="launch('forums.html')">Forums</button>
+  <button class="button" onclick="launch('study-tools.html')">Study Tools</button>
+  <button class="button" onclick="launch('edu.html')">Games</button>
+
+  <script>
+    function launch(path) {
+      const win = window.open("about:blank", "_blank");
+      const iframe = win.document.createElement("iframe");
+      iframe.src = path;
+      iframe.style.border = "none";
+      iframe.style.width = "100%";
+      iframe.style.height = "100%";
+      win.document.body.style.margin = "0";
+      win.document.body.appendChild(iframe);
+    }
+  </script>
 </body>
 </html>
